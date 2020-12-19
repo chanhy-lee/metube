@@ -1,0 +1,12 @@
+{
+  "name": "metube",
+  "version": "1.0.0",
+  "description": "Cloning Youtube with JavaScript and NodeJS",
+  "main": "index.js",
+  "author": "Chan-hyeong Lee <dannychh@khu.ac.kr>",
+  "license": "MIT",
+  "repository": "https://github.com/chanhy-lee/metube.git",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
