@@ -5,16 +5,13 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
+import { userRouter } from './router';
 
 const app = express();
 
-const handleHome = (req, res) => {
-    res.send("This is a home page");
-}
+const handleHome = (req, res) => res.send("This is a home page");
 
-const handleProfile = (req, res) => {
-    res.send("This is a profile page");
-}
+const handleProfile = (req, res) => res.send("This is a profile page");
 
 // global middlewares(before routes)
 app.use(cookieParser());
@@ -27,5 +24,7 @@ app.use(morgan('dev')); // for logging
 app.get("/", handleHome);
 
 app.get("/profile", handleProfile);
+
+app.use("/user", userRouter);
 
 export default app;
