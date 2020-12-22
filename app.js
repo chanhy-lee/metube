@@ -19,7 +19,14 @@ app.set('view engine', 'pug');
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(helmet()); // for security
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+        defaultSrc: ["'self'", "http://*.fontawesome.com"],
+        scriptSrc: ["'self'", "http://*.fontawesome.com"],
+        styleSrc: ["'self'", "'unsafe-inline'"],
+        upgradeInsecureRequests: []
+    }
+})); // for security
 app.use(morgan('dev')); // for logging
 
 // routes

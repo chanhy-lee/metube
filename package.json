@@ -18,7 +18,8 @@
     "pug": "^3.0.0"
   },
   "scripts": {
-    "start": "nodemon --legacy-watch --exec babel-node init.js --delay 2"
+    "reset": "kill -9 $(lsof -t -i:4000)",
+    "start": "nodemon --exec babel-node init.js --delay 2"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
