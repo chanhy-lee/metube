@@ -1,4 +1,9 @@
 extends layouts/main.pug
 
 block content
-    p This is a login page
+    .form-container
+        form(action=routes.login, method="post")
+            input(type="email", placeholder="Email", name="email")
+            input(type="password", placeholder="Password", name="password")
+            input(type="submit", value="Log In")
+        include partials/socialLogin
