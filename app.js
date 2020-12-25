@@ -5,7 +5,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
-import { localsMiddleware } from './middlewares';
+import { localsMiddleware, setHeaderMiddleware } from './middlewares';
 import globalRouter from './routers/globalRouter';
 import userRouter from './routers/userRouter';
 import videoRouter from './routers/videoRouter';
@@ -28,6 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev')); // for logging
 app.use(localsMiddleware); // give local variables to pug templates
+app.use(setHeaderMiddleware); // set header
 
 // routes
 app.use(routes.home, globalRouter);
