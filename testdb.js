@@ -4,7 +4,7 @@ export const videos = [
         title: 'Inception',
         description: 'Powerful SF',
         views: 1282,
-        videoFile: 'https://www.youtube.com/watch?v=pQZfwtAVtiw',
+        videoFile: 'https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4',
         creator: {
             id: 123340,
             name: 'Dan',
@@ -16,7 +16,7 @@ export const videos = [
         title: 'Interstellar',
         description: 'Amazing SF',
         views: 3234,
-        videoFile: 'https://www.youtube.com/watch?v=hRhyJPmfoNg',
+        videoFile: 'https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4',
         creator: {
             id: 123340,
             name: 'Dan',
@@ -28,7 +28,7 @@ export const videos = [
         title: 'Tenet',
         description: 'Incredible SF',
         views: 937,
-        videoFile: 'https://www.youtube.com/watch?v=5zlNURituKc',
+        videoFile: 'https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4',
         creator: {
             id: 123340,
             name: 'Dan',
