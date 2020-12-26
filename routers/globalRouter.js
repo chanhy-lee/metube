@@ -3,7 +3,7 @@
 import express from 'express';
 import routes from '../routes';
 import { home, search } from '../controllers/videoController';
-import { getJoin, login, logout, postJoin } from '../controllers/userController';
+import { getJoin, getLogin, logout, postJoin, postLogin } from '../controllers/userController';
 
 const globalRouter = express.Router();
 
@@ -18,7 +18,8 @@ globalRouter.get(routes.join, getJoin);
 globalRouter.post(routes.join, postJoin);
 
 // login
-globalRouter.get(routes.login, login);
+globalRouter.get(routes.login, getLogin);
+globalRouter.post(routes.login, postLogin);
 
 // logout
 globalRouter.get(routes.logout, logout);
