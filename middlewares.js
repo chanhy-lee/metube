@@ -5,6 +5,11 @@ import routes from "./routes";
 export const localsMiddleware = (req, res, next) => {
     res.locals.siteName = 'MeTube';
     res.locals.routes = routes;
+    res.locals.user = {
+        // data for testing
+        isAuthenticated: true,
+        id: 1
+    };
     next();
 };
 
