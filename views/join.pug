@@ -1,4 +1,4 @@
-extends layouts/main.pug
+extends layouts/main
 
 block content
     .form-container
@@ -6,6 +6,6 @@ block content
             input(type="text", placeholder="Name", name="name")
             input(type="email", placeholder="Email", name="email")
             input(type="password", placeholder="Password", name="password")
-            input(type="password", placeholder="Verify Password", name="verify-password")
+            input(type="password", placeholder="Verify Password", name="verifyPassword")
             input(type="submit", value="Join Now")
         include partials/socialLogin

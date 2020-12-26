@@ -1,7 +1,26 @@
 'use strict';
 
+import routes from "../routes";
+
 // for globalRouter
-export const join = (req, res) => res.render("join", { pageTitle: 'Join' });
+export const getJoin = (req, res) => {
+    res.render("join", { pageTitle: 'Join' });
+};
+
+export const postJoin = (req, res) => {
+    const {
+        body: { name, email, password, verifyPassword }
+    } = req;
+    if (password !== verifyPassword) {
+        res.status(400); // Bad Request
+        res.render("join", { pageTitle: 'Join' });
+    } else {
+        // To do: Register user
+        // To do: Log user in
+        res.redirect(routes.home);
+    }
+};
+
 export const login = (req, res) => res.render("login", { pageTitle: 'Log In' });
 export const logout = (req, res) => res.render("logout", { pageTitle: 'Log Out' });
 
