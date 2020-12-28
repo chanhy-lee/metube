@@ -1,7 +1,6 @@
 'use strict';
 
 import routes from '../routes';
-import { videos } from '../testdb';
 
 // for globalRouter
 // home
