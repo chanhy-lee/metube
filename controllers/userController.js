@@ -1,6 +1,7 @@
 'use strict';
 
 import routes from "../routes";
+import Video from "../models/Video";
 
 // for globalRouter
 // join
@@ -35,7 +36,8 @@ export const postLogin = (req, res) => {
 };
 
 // logout
-export const logout = (req, res) => {
+export const logout = async (req, res) => {
+    await Video.deleteMany(); // for development
     // To do: Process log out
     res.redirect(routes.home);
 };
