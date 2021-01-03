@@ -61,7 +61,9 @@ export const videoDetail = async (req, res) => {
 };
 
 // editVideo
-export const editVideo = (req, res) => res.render("editVideo", { pageTitle: 'Edit Video' });
+export const getEditVideo = (req, res) => res.render("editVideo", { pageTitle: 'Edit Video' });
+
+export const postEditVideo = (req, res) => {};
 
 // deleteVideo
 export const deleteVideo = (req, res) => res.render("deleteVideo", { pageTitle: 'Delete Video' });
