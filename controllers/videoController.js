@@ -53,7 +53,7 @@ export const videoDetail = async (req, res) => {
         if (video === null) {
             throw `No video which id is ${id}`;
         }
-        res.render("videoDetail", { pageTitle: `${video.title}`, video });
+        res.render("videoDetail", { pageTitle: video.title, video });
     } catch(err) {
         console.log(err);
         res.redirect(routes.home);
@@ -77,7 +77,19 @@ export const getEditVideo = async (req, res) => {
     }
 };
 
-export const postEditVideo = (req, res) => {};
+export const postEditVideo = async (req, res) => {
+    const {
+        params: { id },
+        body: { title, description }
+    } = req;
+    try {
+        await Video.findOneAndUpdate({ _id: id }, { title, description });
+        res.redirect(`${routes.videos}${routes.videoDetail(id)}`);
+    } catch(err) {
+        console.log(err);
+        res.redirect(routes.home);
+    }
+};
 
 // deleteVideo
 export const deleteVideo = (req, res) => res.render("deleteVideo", { pageTitle: 'Delete Video' });
