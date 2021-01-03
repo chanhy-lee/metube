@@ -1,5 +1,6 @@
 'use strict';
 
+import fs from 'fs';
 import routes from '../routes';
 import Video from '../models/Video';
 
@@ -92,7 +93,8 @@ export const deleteVideo = async (req, res) => {
         params: { id }
     } = req;
     try {
-        await Video.findOneAndRemove({ _id: id });
+        const video = await Video.findOneAndRemove({ _id: id });
+        fs.unlinkSync(video.fileUrl);
     } catch(err) {}
     res.redirect(routes.home);
 };
