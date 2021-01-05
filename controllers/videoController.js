@@ -7,19 +7,24 @@ import Video from '../models/Video';
 // for globalRouter
 // home
 export const home = async (req, res) => {
+    let videos = [];
     try {
-        const videos = await Video.find({}).sort({ _id: -1 });
-        res.render("home", { pageTitle: 'Home', videos });
-    } catch(err) {
-        res.render("home", { pageTitle: 'Home', videos: [] });
-    }
+        videos = await Video.find({}).sort({ _id: -1 });
+    } catch(err) {}
+    res.render("home", { pageTitle: 'Home', videos });
 };
 
 // search
-export const search = (req, res) => {
+export const search = async (req, res) => {
     const {
         query: { term: searchingBy }
     } = req;
+    let videos = [];
+    try {
+        videos = await Video.find({
+            title: { $regex: searchingBy, $options: "i" }
+        }).sort({ _id: -1 });
+    } catch(err) {}
     res.render("search", { pageTitle: 'Search', searchingBy, videos });
 };
 

@@ -3,5 +3,7 @@ include mixins/videoBlock
 
 block content
     .videos
+        if videos.length === 0
+            h5 No Videos
         each video in videos
             +videoBlock(video)
