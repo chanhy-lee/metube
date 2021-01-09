@@ -8,7 +8,8 @@
   "repository": "https://github.com/chanhy-lee/metube.git",
   "scripts": {
     "dev:server": "babel-node init.js",
-    "dev:assets": "gulp dev" 
+    "dev:assets": "gulp dev",
+    "build:assets": "gulp build"
   },
   "dependencies": {
     "@babel/core": "^7.12.10",
@@ -25,6 +26,9 @@
     "pug": "^3.0.0"
   },
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^5.0.0"
   }
 }
