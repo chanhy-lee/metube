@@ -24,6 +24,7 @@ app.use(helmet.contentSecurityPolicy({
 })); // for security
 app.set('view engine', 'pug');
 app.use("/uploads", express.static("uploads")); // route user to 'uploads' directory
+app.use("/assets", express.static("assets")); // route to 'assets'
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
