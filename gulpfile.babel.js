@@ -10,7 +10,7 @@ const gRoutes = {
     scss: {
         watch: "src/scss/**/*.scss",
         src: "src/scss/style.scss",
-        dest: "build/css"
+        dest: "assets/css"
     }
 };
 
@@ -20,7 +20,7 @@ const styles = () =>
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(gRoutes.scss.dest));
 
-const clean = () => del(['build/']);
+const clean = () => del(['assets/']);
 
 const watch = () => {
     gulp.watch(gRoutes.scss.watch, styles);
