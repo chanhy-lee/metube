@@ -1,6 +1,8 @@
 'use strict';
 
 import autoPrefixer from 'gulp-autoprefixer';
+import babelify from 'babelify';
+import bro from 'gulp-bro';
 import csso from 'gulp-csso';
 import del from 'del';
 import gulp from 'gulp';
@@ -13,6 +15,11 @@ const gRoutes = {
         watch: "src/scss/**/*.scss",
         src: "src/scss/style.scss",
         dest: "assets/css"
+    },
+    js: {
+        watch: "src/js/**/*.js",
+        src: "src/js/main.js",
+        dest: "assets/js"
     }
 };
 
@@ -24,15 +31,27 @@ const styles = () =>
         .pipe(csso())
         .pipe(gulp.dest(gRoutes.scss.dest));
 
+const js = () =>
+    gulp
+        .src(gRoutes.js.src)
+        .pipe(bro({
+            transform: [
+                babelify.configure({ presets: ["@babel/preset-env"] }),
+                ["uglifyify", { global: true }]
+            ]
+        }))
+        .pipe(gulp.dest(gRoutes.js.dest));
+
 const clean = () => del(['assets/']);
 
 const watch = () => {
     gulp.watch(gRoutes.scss.watch, styles);
+    gulp.watch(gRoutes.js.watch, js);
 };
 
 const prepare = gulp.series([clean]);
 
-const assets = gulp.series([styles]);
+const assets = gulp.series([styles, js]);
 
 const postDev = gulp.series([watch]);
 

@@ -26,12 +26,15 @@
     "pug": "^3.0.0"
   },
   "devDependencies": {
+    "babelify": "^10.0.0",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
+    "gulp-bro": "^2.0.0",
     "gulp-csso": "^4.0.1",
     "gulp-sass": "^4.1.0",
-    "node-sass": "^5.0.0"
+    "node-sass": "^5.0.0",
+    "uglifyify": "^5.0.2"
   },
   "browserslist": [
     "last 2 versions"
