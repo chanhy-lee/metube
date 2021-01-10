@@ -121,4 +121,4 @@ yarn.lock
 
 # developmet
 uploads
-assets/
+static/

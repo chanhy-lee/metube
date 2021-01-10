@@ -14,12 +14,12 @@ const gRoutes = {
     scss: {
         watch: "src/scss/**/*.scss",
         src: "src/scss/style.scss",
-        dest: "assets/css"
+        dest: "static/css"
     },
     js: {
         watch: "src/js/**/*.js",
         src: "src/js/main.js",
-        dest: "assets/js"
+        dest: "static/js"
     }
 };
 
@@ -42,7 +42,7 @@ const js = () =>
         }))
         .pipe(gulp.dest(gRoutes.js.dest));
 
-const clean = () => del(['assets/']);
+const clean = () => del(['static/']);
 
 const watch = () => {
     gulp.watch(gRoutes.scss.watch, styles);
