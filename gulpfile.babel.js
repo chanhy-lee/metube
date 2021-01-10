@@ -1,5 +1,6 @@
 'use strict';
 
+import autoPrefixer from 'gulp-autoprefixer';
 import del from 'del';
 import gulp from 'gulp';
 import sass from 'gulp-sass';
@@ -18,6 +19,7 @@ const styles = () =>
     gulp
         .src(gRoutes.scss.src)
         .pipe(sass().on('error', sass.logError))
+        .pipe(autoPrefixer())
         .pipe(gulp.dest(gRoutes.scss.dest));
 
 const clean = () => del(['assets/']);
