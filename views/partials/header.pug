@@ -2,20 +2,23 @@ header.header
     .header__column
         a(href=routes.home)
             i.fab.fa-youtube
-    .header__colum
+            | MeTube
+    .header__column
         form(action=routes.search, method="get")
             input(type="text", placeholder="Search by term...", name="term")
+            button(type="submit")
+                i.fas.fa-search
     .header__column
         ul
             if !user.isAuthenticated
                 li
                     a(href=routes.join) Join
-                li
+                li.loginout
                     a(href=routes.login) Log In
             else
                 li
                     a(href=`${routes.videos}${routes.upload}`) Upload
                 li
                     a(href=`${routes.users}${routes.userDetail(user.id)}`) Profile
-                li
+                li.loginout
                     a(href=routes.logout) Log Out

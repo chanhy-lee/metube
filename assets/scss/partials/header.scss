@@ -1,0 +1,83 @@
+.header {
+    height: 55px;
+    padding: 0 20px;
+    background: $slateblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    .header__column:nth-child(1) {
+        a {
+            color: $white;
+            font-size: 2em;
+            font-weight: 900;
+            text-decoration: none;
+            i {
+                margin-right: 3px;
+            }
+        }
+    }
+    .header__column:nth-child(2) {
+        width: max-content;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        input {
+            width: 400px;
+            height: 35px;
+            padding: 0 5px;
+            border: solid 2px $white;
+            background: $slateblue;
+            color: $white;
+            font-size: 1.3em;
+            flex-grow: 1;
+            &:focus {
+                border: solid 2px $blue;
+                outline: none;
+            }
+            &::placeholder {
+                color: #e0e0e0;
+            }
+        }
+        button {
+            width: 50px;
+            height: 39px;
+            border: solid 1.5px $white;
+            background: $white;
+            color: $slateblue;
+            font-size: 1.3em;
+            flex-grow: 1;
+        }
+    }
+    .header__column:nth-child(3) {
+        width: max-content;
+        ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            li {
+                margin: 0 10px;
+                font-size: 1em;
+                font-weight: 800;
+                a {
+                    color: $white;
+                    text-decoration: none;
+                }
+            }
+            li.loginout {
+                width: max-content;
+                height: 30px;
+                padding: 0 5px;
+                border-radius: 10px;
+                background: $white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                a {
+                    color: $slateblue;
+                }
+            }
+        }
+    }
+}
