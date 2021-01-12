@@ -12,13 +12,13 @@ sass.compiler = require('node-sass');
 
 const gRoutes = {
     scss: {
-        watch: "src/scss/**/*.scss",
-        src: "src/scss/style.scss",
+        watch: "assets/scss/**/*.scss",
+        src: "assets/scss/style.scss",
         dest: "static/css"
     },
     js: {
-        watch: "src/js/**/*.js",
-        src: "src/js/main.js",
+        watch: "assets/js/**/*.js",
+        src: "assets/js/main.js",
         dest: "static/js"
     }
 };
