@@ -1,0 +1,15 @@
+@mixin responsive($device) {
+    @if $device == 'phone' {
+        @media screen and (max-device-width: 450px) {
+            @content;
+        }
+    } @else if $device == 'tablet' {
+        @media screen and (min-device-width: 450px) and (max-device-width: 770px) {
+            @content;
+        }
+    } @else if $device == 'computer' {
+        @media screen and (min-device-width: 770px) {
+            @content;
+        }
+    }
+}

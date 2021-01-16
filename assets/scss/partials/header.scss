@@ -1,16 +1,17 @@
+@import '../config/mixins';
+
 .header {
-    height: 55px;
     padding: 0 20px;
     background: $slateblue;
+    font-size: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     .header__column:nth-child(1) {
+        font-size: 2em;
+        font-weight: 900;
         a {
             color: $white;
-            font-size: 2em;
-            font-weight: 900;
             text-decoration: none;
             i {
                 margin-right: 3px;
@@ -18,39 +19,45 @@
         }
     }
     .header__column:nth-child(2) {
-        width: max-content;
+        width: 40%;
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        input {
-            width: 400px;
-            height: 35px;
-            padding: 0 5px;
-            border: solid 2px $white;
-            background: $slateblue;
-            color: $white;
-            font-size: 1.3em;
-            flex-grow: 1;
-            &:focus {
-                border: solid 2px $blue;
-                outline: none;
+        form {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            input {
+                width: calc(100% - 50px);
+                height: 35px;
+                padding: 0 5px;
+                border: solid 2px $white;
+                background: $slateblue;
+                color: $white;
+                font-size: 1.3em;
+                &:focus {
+                    border: solid 2px $blue;
+                    outline: none;
+                }
+                &::placeholder {
+                    color: #e0e0e0;
+                }
             }
-            &::placeholder {
-                color: #e0e0e0;
+            button {
+                width: 50px;
+                height: 39px;
+                border: solid 1.5px $white;
+                background: $white;
+                color: $slateblue;
+                font-size: 1.3em;
+                cursor: pointer;
             }
-        }
-        button {
-            width: 50px;
-            height: 39px;
-            border: solid 1.5px $white;
-            background: $white;
-            color: $slateblue;
-            font-size: 1.3em;
-            flex-grow: 1;
         }
     }
     .header__column:nth-child(3) {
+        display: none; // for dev
         width: max-content;
         ul {
             display: flex;
@@ -76,6 +83,79 @@
                 align-items: center;
                 a {
                     color: $slateblue;
+                }
+            }
+        }
+    }
+    .header__column:nth-child(4) {
+        width: max-content;
+        display: flex;
+        i {
+            color: $white;
+            font-size: 1.5em;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .menuBtn {
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            .stick {
+                background: $white;
+            }
+        }
+    }
+    @include responsive('computer') {
+        height: 55px;
+    }
+    @include responsive('tablet') {
+        height: 65px;
+        .header__column:nth-child(1) {
+            font-size: 2.3em;
+        }
+        .header__column:nth-child(2) {
+            display: none;
+        }
+        .header__column:nth-child(4) {
+            i {
+                width: 50px;
+                height: 39px;
+            }
+            .menuBtn {
+                width: 50px;
+                height: 39px;
+                .stick {
+                    width: 35px;
+                    height: 4px;
+                }
+            }
+        }
+    }
+    @include responsive('phone') {
+        height: 90px;
+        .header__column:nth-child(1) {
+            font-size: 3em;
+        }
+        .header__column:nth-child(2) {
+            display: none;
+        }
+        .header__column:nth-child(4) {
+            i {
+                width: 60px;
+                height: 50px;
+                font-size: 2em;
+            }
+            .menuBtn {
+                width: 60px;
+                height: 50px;
+                .stick {
+                    width: 45px;
+                    height: 5px;
                 }
             }
         }
